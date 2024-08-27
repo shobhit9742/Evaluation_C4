@@ -18,8 +18,8 @@ import PaymentSummary from "./pages/PaymentSummary";
 import TicketPage from "./pages/TicketPage";
 import CreatEvent from "./pages/CreateEvent";
 
-axios.defaults.baseURL = import.meta.env.VITE_API_URL;
-axios.defaults.withCredentials = true;
+// axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+// axios.defaults.withCredentials = true;
 
 function App() {
   return (

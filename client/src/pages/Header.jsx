@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../UserContext";
 import { RxExit } from "react-icons/rx";
 import { BsFillCaretDownFill } from "react-icons/bs";
+import apiClient from "../ApiClient";
 
 export default function Header() {
   const { user, setUser } = useContext(UserContext);
@@ -14,7 +15,7 @@ export default function Header() {
 
   //! Fetch events from the server -------------------------------------------------
   useEffect(() => {
-    axios
+    apiClient
       .get("/events")
       .then((response) => {
         setEvents(response.data);
@@ -46,7 +47,7 @@ export default function Header() {
 
   //! Logout Function --------------------------------------------------------
   async function logout() {
-    await axios.post("/logout");
+    await apiClient.post("/logout");
     setUser(null);
   }
   //! Search input ----------------------------------------------------------------

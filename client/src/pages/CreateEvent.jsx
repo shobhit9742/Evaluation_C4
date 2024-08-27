@@ -454,6 +454,7 @@
 
 import axios from "axios";
 import { useState } from "react";
+import apiClient from "../ApiClient";
 
 export default function CreateEvent() {
   const [title, setTitle] = useState("");
@@ -477,7 +478,7 @@ export default function CreateEvent() {
     }
 
     try {
-      await axios.post("/events", formData, {
+      await apiClient.post("/events", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

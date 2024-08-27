@@ -151,13 +151,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BsArrowRightShort } from "react-icons/bs";
 import { BiLike } from "react-icons/bi";
+import apiClient from "../ApiClient";
 
 export default function IndexPage() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
     // Fetch events from the server
-    axios
+    apiClient
       .get("/events") // Adjust endpoint to match your backend
       .then((response) => {
         setEvents(response.data);
@@ -168,7 +169,7 @@ export default function IndexPage() {
   }, []);
 
   const handleLike = (eventId) => {
-    axios
+    apiClient
       .post(`/events/${eventId}/like`) // Adjust endpoint to match your backend
       .then(() => {
         setEvents((prevEvents) =>

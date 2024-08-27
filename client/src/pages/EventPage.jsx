@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import { AiFillCalendar } from "react-icons/ai";
 import { MdLocationPin } from "react-icons/md";
 import { FaCopy, FaWhatsappSquare, FaFacebook } from "react-icons/fa";
+import apiClient from "../ApiClient";
 
 export default function EventPage() {
   const { id } = useParams();
@@ -15,7 +16,7 @@ export default function EventPage() {
     if (!id) {
       return;
     }
-    axios
+    apiClient
       .get(`/event/${id}`)
       .then((response) => {
         setEvent(response.data);

@@ -1,6 +1,7 @@
 import  { useContext, useState } from 'react';
 import axios from 'axios';
 import { UserContext } from '../UserContext';
+import apiClient from '../ApiClient';
 
 export default function AddEvent() {
   const {user} = useContext(UserContext);
@@ -35,7 +36,7 @@ export default function AddEvent() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
+    apiClient
       .post("/createEvent", formData)
       .then((response) => {
         console.log("Event posted successfully:", response.data);

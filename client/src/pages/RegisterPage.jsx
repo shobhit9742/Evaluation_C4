@@ -2,6 +2,7 @@
 import { Link, Navigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import apiClient from "../ApiClient";
 
 // export default function RegisterPage() {
 //   const [name, setName] = useState("");
@@ -243,7 +244,7 @@ export default function RegisterPage() {
     }
 
     try {
-      await axios.post("/register", {
+      await apiClient.post("/register", {
         name,
         email,
         username, // Include username in the request
